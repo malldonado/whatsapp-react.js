@@ -11,7 +11,7 @@ body {
 .app-window {
   display: flex;
   height: 100vh;
-  background-color: #EDEDED;
+  background-color: #f8f9fa;
 }
 
 .sidebar {
@@ -80,6 +80,15 @@ header {
   overflow-y: auto;
 }
 
-.contentarea {
+.chatlist::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
 
+.chatlist::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.2);
+}
+
+.contentarea {
+  flex: 1;
 }

@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import './App.css';
 
 import ChatListItem from './components/ChatListItem';
+import ChatIntro from './components/ChatIntro';
 
 import DonutLargeIcon from '@material-ui/icons/DonutLarge';
 import ChatIcon from '@material-ui/icons/Chat';
@@ -10,7 +11,7 @@ import SearchIcon from '@material-ui/icons/Search';
 
 export default() => {
 
-  const [chatlist, setChatlist] = useState([{},{},{},{}]);
+  const [chatlist, setChatlist] = useState([{},{},{},{},{},{},{},{},{},{}]);
 
   return (
     <div className='app-window'>
@@ -44,7 +45,7 @@ export default() => {
         </div>
       </div>
       <div className='contentArea'>
-        ...
+        <ChatIntro/> 
       </div>
     </div>
   );
