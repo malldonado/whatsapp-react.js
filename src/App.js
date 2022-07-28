@@ -45,19 +45,21 @@ export default() => {
         </div>
         <div className='chatlist'>
           {chatlist.map((item, key)=> (
-            <ChatListItem 
+            <ChatListItem
               key={key}
+              data={item}
+              active={activeChat.chatId === chatlist[key].chatId}
               onClick={()=>setActiveChat(chatlist[key])}
             />
           ))}
         </div>
       </div>
       <div className='contentArea'>
-        {activeChat.chatId !== undefined && 
+        {activeChat.chatId !== undefined &&
           <ChatWindow />
         }
         {activeChat.chatId === undefined &&
-          <ChatIntro/> 
+          <ChatIntro/>
         }
       </div>
     </div>
