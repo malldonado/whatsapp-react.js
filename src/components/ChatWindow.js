@@ -28,33 +28,29 @@ export default () => {
               <MoreVertIcon style={{color: '#919191'}} />
             </div>
           </div>
-
         </div>
 
         <div className="chatWIndow--body">
 
         </div>
 
-        <div className="chatWIndow--footer">
-
+        <div className="chatWindow--footer">
           <div className="chatWindow--pre">
-
+            <div className='chatWindow--btn'>
+              <CloseIcon style={{color: '#919191'}} />
+            </div>
             <div className='chatWindow--btn'>
               <InsertEmoticonIcon style={{color: '#919191'}} />
             </div>
-
           </div>
-
           <div className="chatWindow--inputarea">
-            
+            <input className='chatWindow--input' type="text" placeholder='Digite uma mensagem' />
           </div>
-
           <div className="chatWindow--pos">
             <div className='chatWindow--btn'>
               <SendIcon style={{color: '#919191'}} />
             </div>
           </div>
-
         </div>
     </div>
   )
