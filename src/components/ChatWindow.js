@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import EmojiPicker from 'emoji-picker-react';
 import './ChatWindow.css';
 import MensageItem from './MensageItem';
@@ -20,6 +20,8 @@ export default ({user}) => {
     recognition = new SpeechRecognition();
   }
 
+  const body = useRef();
+
   const [emojiOpen, setSmojiOpen] = useState(false)
   const [text, setText] = useState('');
   const [listening, setListening] = useState();
@@ -35,8 +37,26 @@ export default ({user}) => {
     {author:123, body: 'bla bla bla bla'}, 
     {author: 1234, body: 'bla bla bla bla'}, 
     {author: 1234, body: 'bla bla bla bla'}, 
+    {author: 1234, body: 'bla bla bla bla'},
+    {author:123, body: 'bla bla bla bla'}, 
+    {author: 1234, body: 'bla bla bla bla'}, 
+    {author: 1234, body: 'bla bla bla bla'}, 
+    {author: 1234, body: 'bla bla bla bla'},
+    {author:123, body: 'bla bla bla bla'}, 
+    {author: 1234, body: 'bla bla bla bla'}, 
+    {author: 1234, body: 'bla bla bla bla'}, 
+    {author: 1234, body: 'bla bla bla bla'},
+    {author:123, body: 'bla bla bla bla'}, 
+    {author: 1234, body: 'bla bla bla bla'}, 
+    {author: 1234, body: 'bla bla bla bla'}, 
     {author: 1234, body: 'bla bla bla bla'}
   ]);
+
+  useEffect(() => {
+    if(body.current.scrollHeight > body.current.offsetHeight) {
+      body.current.scrollTop = body.current.scrollHeight - body.current.offsetHeight;
+    }
+  }, [list]);
 
   const handleEmojiClick = (e, emojiObject) => {
     setText( text + emojiObject.emoji);
@@ -95,7 +115,7 @@ export default ({user}) => {
           </div>
         </div>
 
-        <div className="chatWindow--body">
+        <div ref={body} className="chatWindow--body">
           {list.map((item, key)=>(
             <MensageItem 
             key={key}

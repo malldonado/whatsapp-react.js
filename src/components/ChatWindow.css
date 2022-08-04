@@ -59,12 +59,12 @@
     padding: 20px 30px;
 }
 
-.chatlist::-webkit-scrollbar {
+.chatWindow--body::-webkit-scrollbar {
     width: 6px;
     height: 6px;
 }
 
-.chatlist::-webkit-scrollbar-thumb {
+.chatWindow--body::-webkit-scrollbar-thumb {
     background-color: rgba(0, 0, 0, 0.2);
 }
 
