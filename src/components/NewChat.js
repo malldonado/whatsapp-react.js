@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import './NewChat.css';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
-function NewChat() {
+function NewChat({user, chatlist, show, setShow}) {
 
   const [list, setList] = useState([
     {id: 123, avatar: 'https://www.w3schools.com/howto/img_avatar2.png', name: 'Matheus Maldonado'},
@@ -11,10 +11,14 @@ function NewChat() {
     {id: 123, avatar: 'https://www.w3schools.com/howto/img_avatar2.png', name: 'Matheus Maldonado'}
   ]);
 
+  const handleClose = () => {
+    setShow(false);
+  }
+
   return (
-    <div className='newChat'>
+    <div className='newChat' style={{left: show ? 0 : -415}}>
         <div className="newChat--head">
-            <div className="newChat--backButton">
+            <div onClick={handleClose} className="newChat--backButton">
                 <ArrowBackIcon style={{color: '#fff'}} />
             </div>
             <div className="newChat--headtitle">Nova Conversa</div>
