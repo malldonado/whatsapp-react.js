@@ -1,13 +1,16 @@
 import { async } from '@firebase/util';
 import React from 'react';
 import './Login.css';
+import Api from '../Api';
 
-const handleFacebookLogin = async () => {
+const handleFacebookLogin = async ({onReceive}) => {
     let result = await Api.fbPopup();
     if(result) {
-
+      onReceive(result.user);
     }
-    else {alert('erro');}
+    else {
+      alert('erro');
+    }
 }
 
 function Login() {
