@@ -15,18 +15,18 @@
 //     }
 // };
 
-import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+// import { initializeApp } from 'firebase/app';
+// import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 
-import firebaseConfig from './firebaseConfig';
+// import firebaseConfig from './firebase-config';
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+// const app = initializeApp(firebaseConfig);
+// const db = getFirestore(app);
 
-export default {
-    fbPopup:async () => {
-        const provider = new initializeApp.auth.FacebookAuthProvider(); // error aqui
-        let result = await getFirestore.auth().signInWithPopup(provider);
-        return result;
-    }
-};
+// export default {
+//     fbPopup:async () => {
+//         const provider = new initializeApp.auth.FacebookAuthProvider(); // error aqui
+//         let result = await getFirestore.auth().signInWithPopup(provider);
+//         return result;
+//     }
+// };
