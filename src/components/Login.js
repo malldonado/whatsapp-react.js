@@ -1,26 +1,26 @@
-import { async } from '@firebase/util';
-import {signInWithPopup, FacebookAuthProvider} from 'firebase/auth';
-import { authentication } from '../firebase-config';
+// import { async } from '@firebase/util';
 import React from 'react';
 import './Login.css';
 import Api from '../Api';
 
-const signInWithFacebook = () => {
-    const provider = new FacebookAuthProvider();
-    signInWithPopup(authentication, provider)
-    .then((res) => {
-      console.log(res)
-    }).catch((err) => {
-      console.log(err);
-    })
+// eslint-disable-next-line import/no-anonymous-default-export
+export default ({onReceive}) => {
+
+  const handleFacebookLogin = async () => {
+      let result = await Api.fbPopup();
+      if(result) {
+        onReceive(result.user);
+      } else {
+        alert('Erro');
+      }
+  }
+
+    return (
+      <div className='login'>
+          <button onClick={handleFacebookLogin}>Logar com facebook</button>
+      </div>
+    )
+
 }
 
-function Login() {
-  return (
-    <div className='login'>
-        <button onClick={signInWithFacebook}>Logar com facebook</button>
-    </div>
-  )
-}
 
-export default Login
