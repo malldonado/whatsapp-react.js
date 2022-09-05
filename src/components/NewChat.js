@@ -1,15 +1,16 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import './NewChat.css';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 function NewChat({user, chatlist, show, setShow}) {
 
   const [list, setList] = useState([
-    {id: 123, avatar: 'https://www.w3schools.com/howto/img_avatar2.png', name: 'Matheus Maldonado'},
-    {id: 123, avatar: 'https://www.w3schools.com/howto/img_avatar2.png', name: 'Matheus Maldonado'},
-    {id: 123, avatar: 'https://www.w3schools.com/howto/img_avatar2.png', name: 'Matheus Maldonado'},
-    {id: 123, avatar: 'https://www.w3schools.com/howto/img_avatar2.png', name: 'Matheus Maldonado'}
+
   ]);
+
+  useEffect(() => {
+
+  }, [])
 
   const handleClose = () => {
     setShow(false);

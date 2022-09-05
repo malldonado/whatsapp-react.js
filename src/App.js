@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
+import Api from './Api';
 
 import ChatListItem from './components/ChatListItem';
 import ChatIntro from './components/ChatIntro';
@@ -15,14 +16,13 @@ import SearchIcon from '@material-ui/icons/Search';
 // eslint-disable-next-line import/no-anonymous-default-export
 export default() => {
 
-  const [chatlist, setChatlist] = useState([
-    {chatId: 1, title: 'Fulano de tal', image: 'https://www.w3schools.com/howto/img_avatar2.png'},
-    {chatId: 2, title: 'Fulano de tal', image: 'https://www.w3schools.com/howto/img_avatar2.png'},
-    {chatId: 3, title: 'Fulano de tal', image: 'https://www.w3schools.com/howto/img_avatar2.png'},
-    {chatId: 4, title: 'Fulano de tal', image: 'https://www.w3schools.com/howto/img_avatar2.png'}
-  ]);
+  const [chatlist, setChatlist] = useState([]);
   const [activeChat, setActiveChat] = useState({});
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({
+    id: 'EidsVgWPSdfMUUupzwi88oTo3ha2',
+    name: 'Matheus Silva',
+    avatar: 'https://graph.facebook.com/1091128388466523/picture'
+  });
 
   const [showNewChat, setShowNewChat] = useState(false);
 
@@ -36,6 +36,7 @@ export default() => {
       name: u.displayName,
       avatar: u.photoURL
     };
+    await Api.addUser(newUser);
     setUser(newUser);
   }
 

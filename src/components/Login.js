@@ -11,7 +11,7 @@ export default ({onReceive}) => {
       if(result) {
         onReceive(result.user);
       } else {
-        alert('Erro');
+        alert('Erro!');
       }
   }
 
