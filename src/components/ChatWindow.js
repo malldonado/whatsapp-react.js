@@ -10,7 +10,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import SendIcon from '@material-ui/icons/Send';
 import MicIcon from '@material-ui/icons/Mic';
 
-export default ({user}) => {
+export default ({user, data}) => {
 
   let recognition = null;
 
@@ -25,32 +25,7 @@ export default ({user}) => {
   const [emojiOpen, setSmojiOpen] = useState(false)
   const [text, setText] = useState('');
   const [listening, setListening] = useState();
-  const [list, setList] = useState([
-    {author:123, body: 'bla bla bla bla'}, 
-    {author: 1234, body: 'bla bla bla bla'}, 
-    {author: 1234, body: 'bla bla bla bla'}, 
-    {author: 1234, body: 'bla bla bla bla'},
-    {author:123, body: 'bla bla bla bla'}, 
-    {author: 1234, body: 'bla bla bla bla'}, 
-    {author: 1234, body: 'bla bla bla bla'}, 
-    {author: 1234, body: 'bla bla bla bla'},
-    {author:123, body: 'bla bla bla bla'}, 
-    {author: 1234, body: 'bla bla bla bla'}, 
-    {author: 1234, body: 'bla bla bla bla'}, 
-    {author: 1234, body: 'bla bla bla bla'},
-    {author:123, body: 'bla bla bla bla'}, 
-    {author: 1234, body: 'bla bla bla bla'}, 
-    {author: 1234, body: 'bla bla bla bla'}, 
-    {author: 1234, body: 'bla bla bla bla'},
-    {author:123, body: 'bla bla bla bla'}, 
-    {author: 1234, body: 'bla bla bla bla'}, 
-    {author: 1234, body: 'bla bla bla bla'}, 
-    {author: 1234, body: 'bla bla bla bla'},
-    {author:123, body: 'bla bla bla bla'}, 
-    {author: 1234, body: 'bla bla bla bla'}, 
-    {author: 1234, body: 'bla bla bla bla'}, 
-    {author: 1234, body: 'bla bla bla bla'}
-  ]);
+  const [list, setList] = useState([{}]);
 
   useEffect(() => {
     if(body.current.scrollHeight > body.current.offsetHeight) {
@@ -98,8 +73,8 @@ export default ({user}) => {
     <div className="chatWindow">
         <div className="chatWindow--header">
           <div className="chatWindow--headerinfo">
-            <img className='chatWindow--avatar' src="https://www.w3schools.com/howto/img_avatar2.png" alt="" />
-            <div className="chatWindow--name">Bonie lacerda</div>
+            <img className='chatWindow--avatar' src={data.image} alt="" />
+            <div className="chatWindow--name">{data.title}</div>
           </div>
 
           <div className="chatWindow--headerbuttons">

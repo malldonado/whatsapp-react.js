@@ -26,6 +26,13 @@ export default() => {
 
   const [showNewChat, setShowNewChat] = useState(false);
 
+  useEffect(() => {
+    if(user !== null) {
+      let unsub = Api.onChatList(user.id , setChatlist);
+      return unsub;
+    }
+  })
+
   const handleNewChat = () => {
     setShowNewChat(true);
   }
@@ -81,7 +88,7 @@ export default() => {
       </div>
       <div className='contentArea'>
         {activeChat.chatId !== undefined &&
-          <ChatWindow user={user} />
+          <ChatWindow user={user} data={activeChat} />
         }
         {activeChat.chatId === undefined &&
           <ChatIntro/>
