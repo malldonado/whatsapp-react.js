@@ -9,6 +9,7 @@ import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
 import CloseIcon from '@material-ui/icons/Close';
 import SendIcon from '@material-ui/icons/Send';
 import MicIcon from '@material-ui/icons/Mic';
+import Api from '../Api';
 
 export default ({user, data}) => {
 
@@ -22,10 +23,17 @@ export default ({user, data}) => {
 
   const body = useRef();
 
-  const [emojiOpen, setSmojiOpen] = useState(false)
+  const [emojiOpen, setEmojiOpen] = useState(false)
   const [text, setText] = useState('');
   const [listening, setListening] = useState();
   const [list, setList] = useState([{}]);
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+      setList([]);
+      let unsub = Api.onChatContent(data.chatId, setList, setUsers);
+      return unsub;
+  }, [data.chatId]);
 
   useEffect(() => {
     if(body.current.scrollHeight > body.current.offsetHeight) {
@@ -38,11 +46,11 @@ export default ({user, data}) => {
   }
 
   const handleOpenEmoji = () => {
-    setSmojiOpen(true);
+    setEmojiOpen(true);
   }
 
   const handleCloseEmoji = () => {
-    setSmojiOpen(false);
+    setEmojiOpen(false);
   }
 
   const handleMicClick = () => {
@@ -65,8 +73,18 @@ export default ({user, data}) => {
     }
   }
 
-  const handleSendClick = () => {
+  const handleInputKeyUp = (e) => {
+    if(e.keyCode == 13) {
+      handleSendClick();
+    }
+  }
 
+  const handleSendClick = () => {
+    if(text !== '') {
+      Api.sendMessage(data, user.id, 'text', text, users);
+      setText('');
+      setEmojiOpen(false);
+    }
   }
   
   return (
@@ -114,7 +132,7 @@ export default ({user, data}) => {
             </div>
           </div>
           <div className="chatWindow--inputarea">
-            <input className='chatWindow--input' type="text" placeholder='Digite uma mensagem' value={text} onChange={e=>setText(e.target.value)} />
+            <input className='chatWindow--input' type="text" placeholder='Digite uma mensagem' value={text} onChange={e=>setText(e.target.value)} onKeyUp={handleInputKeyUp} />
           </div>
           <div className="chatWindow--pos">
 
