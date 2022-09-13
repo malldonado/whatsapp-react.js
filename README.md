@@ -1,3 +1,9 @@
+Esse projeto foi desenvolvido em React.js com Firebase.
+
+![1](https://user-images.githubusercontent.com/47877623/189955357-16634947-7df3-42f3-a4bb-9477e51407da.png)
+
+💻 Projeto é uma chat baseado na aplicação do whatsapp feito com a tecnologia React e como back-end utilizado o Firebase.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
