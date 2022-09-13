@@ -2,7 +2,7 @@
 
 ![1](https://user-images.githubusercontent.com/47877623/189956096-88f8489d-2637-46e8-9ec0-5dbea7d2db45.png)
 
-Projeto é uma chat baseado na aplicação do whatsapp feito com a tecnologia React e como back-end utilizado o Firebase.
+Projeto é uma chat baseado na aplicação do whatsapp feito com a tecnologia React e como back-end utilizando o Firebase.
 
 # Getting Started with Create React App
 
